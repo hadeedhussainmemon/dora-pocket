@@ -7,14 +7,21 @@
   --dora-white: #FFFFFF;
   --dora-red: #E02A27;
 
+  /* Premium Palette & Gradients */
+  --dora-gradient-primary: linear-gradient(135deg, #0096D7 0%, #29B6F6 100%);
+  --dora-gradient-text: linear-gradient(to right, #0096D7, #29B6F6);
+  --glass-surface: rgba(255, 255, 255, 0.7);
+  --glass-border: rgba(255, 255, 255, 0.5);
+
   /* UI Colors */
   --background: #F0F4F8;
   /* Soft slightly blueish gray */
   --foreground: #334e68;
 
   /* Neumorphism Shadows */
-  --shadow-neu-out: -6px -6px 14px rgba(255, 255, 255, 0.8), 6px 6px 10px rgba(70, 70, 70, 0.12);
-  --shadow-neu-in: inset -6px -6px 14px rgba(255, 255, 255, 0.8), inset 6px 6px 10px rgba(70, 70, 70, 0.12);
+  --shadow-neu-out: -6px -6px 14px rgba(255, 255, 255, 0.9), 6px 6px 10px rgba(70, 70, 70, 0.1);
+  --shadow-neu-in: inset -6px -6px 14px rgba(255, 255, 255, 0.9), inset 6px 6px 10px rgba(70, 70, 70, 0.1);
+  --shadow-float: 0 10px 40px -10px rgba(0, 150, 215, 0.3);
 }
 
 .dark {
