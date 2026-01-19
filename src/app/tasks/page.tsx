@@ -72,18 +72,23 @@ export default function TasksPage() {
     const progress = Math.round((tasks.filter(t => t.completed).length / tasks.length) * 100);
 
     return (
-        <main className="min-h-screen p-6 pb-32 max-w-md mx-auto relative">
-            <header className="mb-8 pt-8">
-                <h1 className="text-3xl font-black text-[var(--dora-blue)] mb-2">Sewashi's List</h1>
-                <p className="text-gray-500 font-medium">Complete tasks to earn a treat!</p>
+        <main className="min-h-screen p-6 pb-32 max-w-md mx-auto relative font-sans selection:bg-[var(--dora-blue)] selection:text-white">
+            {/* Background elements */}
+            <div className="fixed inset-0 bg-[var(--background)] -z-20" />
+            <div className="fixed inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-green-100/40 via-transparent to-transparent opacity-60 pointer-events-none -z-10" />
+
+            <header className="mb-10 pt-8 text-center">
+                <h1 className="text-4xl font-black text-transparent bg-clip-text bg-gradient-to-r from-green-500 to-emerald-600 mb-2 drop-shadow-sm">Sewashi's List</h1>
+                <p className="text-[var(--foreground)]/70 font-medium">Complete tasks to earn a treat!</p>
+
 
                 {/* Progress Bar */}
-                <div className="mt-6 h-4 bg-gray-200 rounded-full overflow-hidden shadow-inner">
+                <div className="mt-8 h-6 bg-[var(--glass-surface)] backdrop-blur-sm rounded-full p-1 shadow-inner border border-[var(--glass-border)]">
                     <motion.div
-                        className="h-full bg-[var(--dora-bell)]"
+                        className="h-full bg-gradient-to-r from-green-400 to-emerald-500 rounded-full shadow-[0_0_10px_rgba(52,211,153,0.5)]"
                         initial={{ width: 0 }}
                         animate={{ width: `${progress}%` }}
-                        transition={{ duration: 0.5 }}
+                        transition={{ duration: 0.8, type: "spring", bounce: 0.2 }}
                     />
                 </div>
             </header>
@@ -102,8 +107,8 @@ export default function TasksPage() {
 
             {/* Reset Debug Button (Optional, can be hidden) */}
             <div className="mt-12 text-center">
-                <button onClick={resetTasks} className="text-xs text-gray-300 hover:text-gray-500 underline">
-                    Reset Day
+                <button onClick={resetTasks} className="text-sm font-medium text-gray-400 hover:text-[var(--dora-blue)] transition-colors">
+                    Reset Sewashi's Day
                 </button>
             </div>
         </main>

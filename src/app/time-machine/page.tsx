@@ -53,9 +53,11 @@ export default function TimeMachinePage() {
         <main className="min-h-screen relative overflow-hidden bg-black text-white font-sans">
 
             {/* Back to Pocket (Home) - Absolute position */}
-            <Link href="/" className="absolute top-6 left-6 z-50 flex items-center gap-2 text-white/70 hover:text-white transition-colors">
-                <ArrowLeft size={20} />
-                <span className="font-bold">Back to Pocket</span>
+            <Link href="/" className="absolute top-6 left-6 z-50 flex items-center gap-2 text-white/70 hover:text-white transition-colors group">
+                <div className="p-2 bg-white/10 rounded-full group-hover:bg-white/20 transition-colors">
+                    <ArrowLeft size={20} />
+                </div>
+                <span className="font-bold tracking-wide">Back to Pocket</span>
             </Link>
 
             <AnimatePresence mode="wait">
@@ -66,26 +68,42 @@ export default function TimeMachinePage() {
                         key="desk"
                         initial={{ opacity: 0 }}
                         animate={{ opacity: 1 }}
-                        exit={{ opacity: 0, scale: 1.5 }} // Zoom into the drawer
+                        exit={{ opacity: 0, scale: 2, filter: "blur(10px)" }} // Zoom into the drawer
                         transition={{ duration: 0.8 }}
-                        className="flex flex-col items-center justify-center min-h-screen bg-[#F0E6D2]" // Tatami/Wood color
+                        className="flex flex-col items-center justify-center min-h-screen bg-[#F0E6D2] relative overflow-hidden"
                     >
-                        <h1 className="text-4xl font-black text-[#5D4037] mb-8">The Time Machine</h1>
-                        <p className="text-[#8D6E63] mb-12">Open the drawer to send a message to the future.</p>
+                        {/* Ambient Light/Shadows */}
+                        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_transparent_0%,_#3E2723_100%)] opacity-40 pointer-events-none" />
+
+                        <div className="relative z-10 text-center mb-12">
+                            <h1 className="text-5xl font-black text-[#5D4037] mb-4 drop-shadow-sm">The Time Machine</h1>
+                            <p className="text-[#8D6E63] font-medium text-lg">Open the drawer to send a message to the future.</p>
+                        </div>
 
                         <div
-                            className="relative w-80 h-80 cursor-pointer group"
+                            className="relative w-96 h-96 cursor-pointer group"
                             onClick={() => setScene("warp")}
                         >
-                            <div className="absolute inset-0 bg-[#8D6E63] rounded-lg shadow-2xl transform transition-transform group-hover:scale-105" />
-                            {/* Drawer Handlev/ Knob */}
-                            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-64 h-12 bg-[#5D4037] rounded-full shadow-inner opacity-40 group-hover:opacity-60 transition-opacity" />
+                            {/* Drawer Body */}
+                            <motion.div
+                                className="absolute inset-0 bg-[#8D6E63] rounded-3xl shadow-[0_20px_50px_-12px_rgba(0,0,0,0.5)] border-t border-[#A1887F]"
+                                whileHover={{ y: 5 }}
+                            />
 
-                            <div className="absolute inset-4 bg-[#3E2723]/20 blur-sm rounded" />
-
-                            <div className="absolute inset-0 flex items-center justify-center">
-                                <span className="text-white/50 font-bold tracking-widest uppercase group-hover:text-white transition-colors">Click to Open</span>
+                            {/* Drawer Knob/Handle Area */}
+                            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-3/4 h-16 bg-[#5D4037] rounded-full shadow-inner flex items-center justify-center group-hover:shadow-[0_0_30px_rgba(255,255,255,0.1)] transition-shadow duration-500">
+                                {/* Glow effect on hover */}
+                                <div className="w-2 h-2 rounded-full bg-blue-400 opacity-0 group-hover:opacity-100 shadow-[0_0_10px_#60A5FA] transition-opacity duration-300 animate-pulse" />
                             </div>
+
+                            {/* Hover Hint */}
+                            <motion.div
+                                className="absolute -bottom-16 left-1/2 -translate-x-1/2 text-[#5D4037]/60 font-bold uppercase tracking-[0.2em] text-sm"
+                                initial={{ opacity: 0, y: -10 }}
+                                whileHover={{ opacity: 1, y: 0 }}
+                            >
+                                Enter Time Machine
+                            </motion.div>
                         </div>
                     </motion.div>
                 )}
@@ -108,15 +126,18 @@ export default function TimeMachinePage() {
                             transition={{ type: "spring", bounce: 0.4 }}
                             className="relative z-10 w-full max-w-lg p-8 mx-4 bg-white/10 backdrop-blur-xl border border-white/20 rounded-[40px] shadow-2xl"
                         >
-                            <h2 className="text-3xl font-black text-white mb-6 text-center drop-shadow-md">To Future Me...</h2>
-                            <form onSubmit={handleSend} className="space-y-6">
-                                <textarea
-                                    value={message}
-                                    onChange={(e) => setMessage(e.target.value)}
-                                    placeholder="Dear future self, remember to..."
-                                    rows={6}
-                                    className="w-full bg-black/20 text-white placeholder-white/50 border border-white/10 rounded-2xl p-4 focus:outline-none focus:ring-2 focus:ring-blue-400 transition-all resize-none font-medium text-lg leading-relaxed"
-                                />
+                            <h2 className="text-4xl font-black text-transparent bg-clip-text bg-gradient-to-r from-blue-200 to-purple-200 mb-8 text-center drop-shadow-sm tracking-tight">To Future Me...</h2>
+                            <form onSubmit={handleSend} className="space-y-8">
+                                <div className="relative group">
+                                    <div className="absolute -inset-1 bg-gradient-to-r from-blue-600 to-purple-600 rounded-2xl blur opacity-25 group-hover:opacity-50 transition duration-1000"></div>
+                                    <textarea
+                                        value={message}
+                                        onChange={(e) => setMessage(e.target.value)}
+                                        placeholder="Dear future self, remember to..."
+                                        rows={6}
+                                        className="relative w-full bg-black/40 text-white placeholder-white/30 border border-white/10 rounded-2xl p-6 focus:outline-none focus:ring-1 focus:ring-blue-400/50 transition-all resize-none font-medium text-xl leading-relaxed backdrop-blur-sm"
+                                    />
+                                </div>
                                 <button
                                     type="submit"
                                     className="w-full py-4 bg-gradient-to-r from-blue-500 to-purple-600 text-white font-bold text-xl rounded-2xl shadow-lg hover:shadow-blue-500/50 hover:scale-[1.02] active:scale-95 transition-all flex items-center justify-center gap-3"
@@ -140,12 +161,16 @@ export default function TimeMachinePage() {
                         <Image src="/time-machine/warp-bg.png" alt="Time Warp" fill className="object-cover opacity-30" />
 
                         <motion.div
-                            initial={{ y: 0, opacity: 1 }}
-                            animate={{ y: -500, opacity: 0 }}
-                            transition={{ duration: 1.5, ease: "easeIn" }}
-                            className="z-10 bg-white p-6 rounded shadow-lg max-w-xs text-black"
+                            initial={{ y: 0, opacity: 1, scale: 1, rotateX: 0 }}
+                            animate={{ y: -800, opacity: 0, scale: 0.2, rotateX: 60 }}
+                            transition={{ duration: 2, ease: "easeInOut" }}
+                            className="z-10 bg-white p-8 rounded-lg shadow-[0_0_50px_rgba(255,255,255,0.5)] max-w-sm text-black relative"
                         >
-                            <p className="font-handwriting text-lg">{letters[0]?.message || message}</p>
+                            {/* Envelope Aesthetics */}
+                            <div className="absolute top-0 left-0 w-full h-2 bg-[repeating-linear-gradient(45deg,#E02A27,#E02A27_10px,transparent_10px,transparent_20px)] opacity-50" />
+                            <div className="absolute bottom-0 left-0 w-full h-2 bg-[repeating-linear-gradient(45deg,#0096D7,#0096D7_10px,transparent_10px,transparent_20px)] opacity-50" />
+
+                            <p className="font-handwriting text-2xl leading-relaxed text-gray-800">{letters[0]?.message || message}</p>
                         </motion.div>
 
                         <motion.h2

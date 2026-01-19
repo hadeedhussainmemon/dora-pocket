@@ -24,6 +24,19 @@
   --shadow-float: 0 10px 40px -10px rgba(0, 150, 215, 0.3);
 }
 
+/* Custom Utilities for 3D Card Flip */
+.preserve-3d {
+  transform-style: preserve-3d;
+}
+
+.backface-hidden {
+  backface-visibility: hidden;
+}
+
+.rotate-y-180 {
+  transform: rotateY(180deg);
+}
+
 .dark {
   /* Dark Mode Palette ("Turn Off") */
   --background: #0F172A;

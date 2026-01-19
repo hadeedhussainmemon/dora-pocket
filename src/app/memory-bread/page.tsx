@@ -55,15 +55,18 @@ export default function MemoryBreadPage() {
     if (!isLoaded) return null;
 
     return (
-        <main className="min-h-screen p-6 pb-32 bg-[#fffbe6]"> {/* Warm kitchen background color */}
-            <div className="max-w-4xl mx-auto">
-                <header className="text-center mb-8">
-                    <h1 className="text-4xl font-black text-[var(--dora-blue)] mb-2">Memory Bread</h1>
+        <main className="min-h-screen p-6 pb-32 bg-[var(--background)] font-sans selection:bg-[var(--dora-blue)] selection:text-white relative overflow-hidden">
+            <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(ellipse_at_bottom,_var(--tw-gradient-stops))] from-amber-100/40 via-transparent to-transparent opacity-60 pointer-events-none" />
+
+            <div className="max-w-4xl mx-auto relative z-10">
+                <header className="text-center mb-12">
+                    <h1 className="text-4xl md:text-6xl font-black text-transparent bg-clip-text bg-[image:linear-gradient(to_right,#8D6E63,#D7CCC8)] mb-4 drop-shadow-sm">Memory Bread</h1>
+                    {/* Using a warmer/bread-like gradient for this specific tool */}
                     <p className="text-[#8d6e63] font-medium">Type it, print it, eat it! The tastiest way to study.</p>
                 </header>
 
                 {/* Toaster / Input Section */}
-                <section className="max-w-xl mx-auto mb-12 bg-white p-6 rounded-3xl shadow-neu-out border-b-8 border-[#f0e6d2]">
+                <section className="max-w-xl mx-auto mb-16 bg-[var(--glass-surface)] backdrop-blur-xl border border-[var(--glass-border)] p-8 rounded-[32px] shadow-[var(--shadow-float)]">
                     <form onSubmit={handleAdd} className="flex flex-col gap-4">
                         <div className="grid grid-cols-2 gap-4">
                             <input
@@ -81,7 +84,7 @@ export default function MemoryBreadPage() {
                         </div>
                         <button
                             type="submit"
-                            className="flex items-center justify-center gap-2 py-3 bg-[#8d6e63] text-white font-bold rounded-xl shadow-md hover:bg-[#795548] active:scale-95 transition-all"
+                            className="flex items-center justify-center gap-2 py-4 bg-[#8d6e63] text-white font-bold rounded-xl shadow-lg hover:bg-[#795548] hover:scale-[1.02] active:scale-95 transition-all text-lg"
                         >
                             <Plus size={20} />
                             Bake Bread

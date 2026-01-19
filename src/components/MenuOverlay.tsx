@@ -83,6 +83,18 @@ export function MenuOverlay({ isOpen, onClose }: MenuOverlayProps) {
                                     </motion.div>
                                 </Link>
                             ))}
+                            {/* Coming Soon Card */}
+                            <motion.div
+                                initial={{ scale: 0, y: 50 }}
+                                animate={{ scale: 1, y: 0 }}
+                                transition={{ delay: 1.1, type: "spring" }}
+                                className="flex flex-col items-center opacity-70"
+                            >
+                                <div className="w-24 h-24 md:w-32 md:h-32 bg-white/40 backdrop-blur-sm rounded-[2rem] border-2 border-dashed border-gray-300 flex items-center justify-center">
+                                    <span className="text-4xl">➕</span>
+                                </div>
+                                <span className="mt-4 font-bold text-gray-500 text-sm">More Soon...</span>
+                            </motion.div>
                         </div>
                     </div>
                 </motion.div>
