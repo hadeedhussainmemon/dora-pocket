@@ -67,14 +67,14 @@ export function MenuOverlay({ isOpen, onClose }: MenuOverlayProps) {
                     className="fixed inset-0 z-50 overflow-hidden"
                 >
                     {/* 4D Background */}
-                    <div className="absolute inset-0 z-0 bg-white">
+                    <div className="absolute inset-0 z-0 bg-[#0F172A]">
                         <Image
                             src="/hub/pocket-interior.png"
                             alt="4D Space"
                             fill
-                            className="object-cover opacity-60 animate-spin-slower"
+                            className="object-cover opacity-40 animate-spin-slower mix-blend-overlay"
                         />
-                        <div className="absolute inset-0 bg-white/40 backdrop-blur-md" />
+                        <div className="absolute inset-0 bg-[#0F172A]/80 backdrop-blur-md" />
                     </div>
 
                     {/* Close Button */}
@@ -114,7 +114,7 @@ export function MenuOverlay({ isOpen, onClose }: MenuOverlayProps) {
                                             className="flex flex-col items-center group preserve-3d"
                                         >
                                             <div
-                                                className="w-24 h-24 md:w-32 md:h-32 bg-white/80 backdrop-blur-md rounded-[2rem] shadow-lg flex items-center justify-center border-4 border-transparent group-hover:border-white/50 transition-colors relative overflow-hidden"
+                                                className="w-24 h-24 md:w-32 md:h-32 bg-[var(--glass-surface)] backdrop-blur-md rounded-[2rem] shadow-lg flex items-center justify-center border-4 border-white/5 group-hover:border-white/20 transition-colors relative overflow-hidden"
                                                 style={{ boxShadow: `0 10px 40px -10px ${gadget.color}66` }}
                                             >
                                                 {/* Shine effect */}
@@ -133,7 +133,7 @@ export function MenuOverlay({ isOpen, onClose }: MenuOverlayProps) {
                                 initial={{ scale: 0, y: 50 }}
                                 animate={{ scale: 1, y: 0 }}
                                 transition={{ delay: 1.1, type: "spring" }}
-                                className="flex flex-col items-center opacity-70"
+                                className="col-span-2 md:col-span-3 flex flex-col items-center opacity-70 py-4"
                             >
                                 <div className="w-24 h-24 md:w-32 md:h-32 bg-white/40 backdrop-blur-sm rounded-[2rem] border-2 border-dashed border-gray-300 flex items-center justify-center">
                                     <span className="text-4xl">➕</span>
