@@ -28,6 +28,10 @@ export const metadata: Metadata = {
         alt: "Dora-Pocket Preview",
       }
     ],
+  },
+  icons: {
+    icon: '/icon.png',
+    apple: '/icon.png',
   }
 };
 
