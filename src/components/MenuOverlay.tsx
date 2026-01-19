@@ -24,7 +24,7 @@ export function MenuOverlay({ isOpen, onClose }: MenuOverlayProps) {
     const handleDorayakiClick = () => {
         const duration = 3000;
         const animationEnd = Date.now() + duration;
-        const defaults = { startVelocity: 30, spread: 360, ticks: 60, zIndex: 60 };
+        const defaults = { startVelocity: 30, spread: 360, ticks: 60, zIndex: 100 };
 
         const randomInRange = (min: number, max: number) => Math.random() * (max - min) + min;
 
@@ -41,14 +41,14 @@ export function MenuOverlay({ isOpen, onClose }: MenuOverlayProps) {
             confetti({
                 ...defaults,
                 particleCount,
-                origin: { x: randomInRange(0.1, 0.3), y: Math.random() - 0.2 },
+                origin: { x: randomInRange(0.1, 0.3), y: Math.random() * 0.2 },
                 shapes: ['circle'],
                 colors: ['#FFD700', '#E02A27', '#8D6E63']
             });
             confetti({
                 ...defaults,
                 particleCount,
-                origin: { x: randomInRange(0.7, 0.9), y: Math.random() - 0.2 },
+                origin: { x: randomInRange(0.7, 0.9), y: Math.random() * 0.2 },
                 shapes: ['circle'],
                 colors: ['#FFD700', '#E02A27', '#8D6E63']
             });

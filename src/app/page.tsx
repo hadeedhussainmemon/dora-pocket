@@ -22,7 +22,7 @@ export default function Home() {
           borderRadius: isMenuOpen ? "2rem" : "0"
         }}
         transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-        className="w-full h-full flex flex-col items-center justify-end relative bg-[var(--background)] origin-bottom overflow-hidden shadow-2xl"
+        className="w-full h-full flex flex-col items-center justify-end pb-28 relative bg-[var(--background)] origin-bottom overflow-hidden shadow-2xl"
       >
         {/* Background Gradient Mesh */}
         <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-blue-100/10 via-transparent to-transparent opacity-60 pointer-events-none" />
