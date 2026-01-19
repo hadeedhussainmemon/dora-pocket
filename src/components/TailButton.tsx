@@ -5,20 +5,7 @@ import { useState, useEffect } from "react";
 import Image from "next/image";
 
 export function TailButton() {
-    const [isDark, setIsDark] = useState(false);
-
-    useEffect(() => {
-        if (isDark) {
-            document.documentElement.classList.add("dark");
-        } else {
-            document.documentElement.classList.remove("dark");
-        }
-    }, [isDark]);
-
-    const toggleDarkMode = () => {
-        setIsDark(!isDark);
-    };
-
+    // Just a fun interactive element now!
     return (
         <div className="fixed bottom-6 right-6 z-50 group">
             {/* Tooltip hint */}
@@ -27,9 +14,10 @@ export function TailButton() {
             </div>
 
             <motion.button
-                onClick={toggleDarkMode}
-                whileHover={{ scale: 1.1, rotate: 10 }}
-                whileTap={{ scale: 0.9, y: 5 }}
+                animate={{ rotate: [0, 5, -5, 0] }}
+                transition={{ repeat: Infinity, duration: 2, ease: "easeInOut", repeatDelay: 1 }}
+                whileHover={{ scale: 1.2, rotate: 15 }}
+                whileTap={{ scale: 0.8, y: 15, rotate: -20, transition: { type: "spring", stiffness: 300 } }}
                 className="relative w-16 h-16 pointer-events-auto focus:outline-none"
             >
                 <Image

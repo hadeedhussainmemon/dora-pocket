@@ -37,16 +37,7 @@
   transform: rotateY(180deg);
 }
 
-.dark {
-  /* Dark Mode Palette ("Turn Off") */
-  --background: #0F172A;
-  --foreground: #E2E8F0;
-  --dora-blue: #38bdf8;
 
-  /* Dark Shadows */
-  --shadow-neu-out: -4px -4px 10px rgba(255, 255, 255, 0.05), 4px 4px 10px rgba(0, 0, 0, 0.5);
-  --shadow-neu-in: inset -4px -4px 10px rgba(255, 255, 255, 0.05), inset 4px 4px 10px rgba(0, 0, 0, 0.5);
-}
 
 
 @theme inline {
