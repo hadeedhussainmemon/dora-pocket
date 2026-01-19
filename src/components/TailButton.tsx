@@ -18,14 +18,16 @@ export function TailButton() {
                 transition={{ repeat: Infinity, duration: 2, ease: "easeInOut", repeatDelay: 1 }}
                 whileHover={{ scale: 1.2, rotate: 15 }}
                 whileTap={{ scale: 0.8, y: 15, rotate: -20, transition: { type: "spring", stiffness: 300 } }}
-                className="relative w-16 h-16 pointer-events-auto focus:outline-none"
+                className="relative w-16 h-16 pointer-events-auto focus:outline-none flex items-center justify-center"
             >
-                <Image
-                    src="/tail.png"
-                    alt="Doraemon's Tail"
-                    fill
-                    className="object-contain drop-shadow-xl"
-                />
+                {/* CSS 3D Tail */}
+                <div className="w-12 h-12 bg-[radial-gradient(circle_at_30%_30%,_#ff5252,_#e02a27_60%,_#8a0000_100%)] rounded-full shadow-[0_4px_10px_rgba(0,0,0,0.3),inset_-2px_-2px_6px_rgba(0,0,0,0.2)] relative z-10 border border-[#b71c1c]/20">
+                    {/* Shine */}
+                    <div className="absolute top-2 left-3 w-3 h-2 bg-white/40 blur-[2px] rounded-full rotate-[-45deg]" />
+                </div>
+
+                {/* Cord/Stem (Visual connector) - slightly behind */}
+                <div className="absolute -z-0 top-1 right-2 w-4 h-4 border-t-4 border-r-4 border-[#e02a27] rounded-tr-xl -rotate-12 opacity-80" />
             </motion.button>
         </div>
     );
