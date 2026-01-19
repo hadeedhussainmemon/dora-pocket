@@ -73,13 +73,13 @@ export default function MemoryBreadPage() {
                                 value={newQ}
                                 onChange={e => setNewQ(e.target.value)}
                                 placeholder="Side A (Question)"
-                                className="p-3 bg-gray-50 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-[var(--dora-blue)]"
+                                className="p-3 bg-gray-50 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-[var(--dora-blue)] placeholder:text-gray-500 text-gray-800"
                             />
                             <input
                                 value={newA}
                                 onChange={e => setNewA(e.target.value)}
                                 placeholder="Side B (Answer)"
-                                className="p-3 bg-gray-50 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-[var(--dora-blue)]"
+                                className="p-3 bg-gray-50 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-[var(--dora-blue)] placeholder:text-gray-500 text-gray-800"
                             />
                         </div>
                         <button

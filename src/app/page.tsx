@@ -95,13 +95,16 @@ export default function Home() {
             transition={{ delay: 0.2, type: "spring" }}
             className="relative w-full h-full"
           >
-            <Image
-              src="/hub/team-group.png"
-              alt="Doraemon and Friends"
-              fill
-              className="object-contain object-bottom"
-              priority
-            />
+            {/* Photo Card Style Wrapper */}
+            <div className="relative w-full h-full p-4 bg-white rounded-2xl shadow-[0_20px_60px_-15px_rgba(0,0,0,0.3)] rotate-2 border-4 border-white/50 transform transition-transform hover:rotate-0 duration-500">
+              <Image
+                src="/hub/team-group.png"
+                alt="Doraemon and Friends"
+                fill
+                className="object-contain object-bottom pt-4"
+                priority
+              />
+            </div>
 
             {/* 3. INTERACTIVE POCKET BUTTON (Invisible overlay over Doraemon's belly) */}
             {/* Adjusting position based on the image composition. Assuming Doraemon is center. */}

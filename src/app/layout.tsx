@@ -20,7 +20,14 @@ export const metadata: Metadata = {
     title: "Dora-Pocket",
     description: "Your personal 4D pocket.",
     type: "website",
-    images: ["/opengraph-image.png"],
+    images: [
+      {
+        url: "/opengraph-image.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Dora-Pocket Preview",
+      }
+    ],
   }
 };
 
@@ -35,7 +42,7 @@ export default function RootLayout({
       <head>
       </head>
       <body
-        className={`${outfit.variable} antialiased min-h-screen pb-24`}
+        className={`${outfit.variable} antialiased min-h-screen`}
       >
         <div className="fixed top-0 left-0 w-full h-full -z-50 bg-[var(--background)] opacity-50 bg-[radial-gradient(#0096D7_1px,transparent_1px)] [background-size:20px_20px]" />
         {children}

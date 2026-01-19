@@ -1,36 +1,80 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Dora-Pocket 🔔
 
-## Getting Started
+> **Your Personal 4D Pocket.**
 
-First, run the development server:
+Dora-Pocket is a modern, interactive web application bringing the magic of Doraemon's gadgets to your browser. Built with a premium glassmorphic aesthetic and fluid animations, it offers a nostalgic yet futuristic helpful experience.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+![Dora-Pocket Preview](/src/app/opengraph-image.png)
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## ✨ Features
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### 🚪 The Anywhere Door (`/map`)
+Travel instantly to iconic locations with immersive, high-quality backgrounds.
+- **Locations**: Nobita's Room, The Moon Kingdom, The Dino Era.
+- **Tech**: Framer Motion transitions, responsive location cards.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### 🍞 Memory Bread (`/memory-bread`)
+A study aid to help you memorize anything!
+- **Function**: Flip the bread to see the answer, "eat" it to mark as memorized.
+- **Tech**: 3D CSS transforms for realistic card flipping, LocalStorage for persistence.
 
-## Learn More
+### 🕰️ Time Machine (`/time-machine`)
+Send a message to your future self.
+- **Experience**: Open the desk drawer to enter the time warp and send your letter.
+- **Tech**: Complex animation sequences, immersive scene switching.
 
-To learn more about Next.js, take a look at the following resources:
+### ✅ Sewashi's Tasks (`/tasks`)
+A gamified to-do list to keep you productive.
+- **Reward**: Complete your tasks to earn a virtual Dorayaki with a confetti celebration!
+- **Tech**: Canvas-confetti, progress tracking.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### 🌠 Wishlist (`/wishlist`)
+What gadget do you wish for next?
+- **Function**: stick your wishes on the wall.
+- **Tech**: Masonry layout, sticky-note styling, delete functionality.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+---
 
-## Deploy on Vercel
+## 🛠️ Technology Stack
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- **Framework**: [Next.js 15 (App Router)](https://nextjs.org/)
+- **Styling**: [Tailwind CSS 4](https://tailwindcss.com/)
+- **Animations**: [Framer Motion](https://www.framer.com/motion/)
+- **Icons**: [Lucide React](https://lucide.dev/)
+- **State Persistence**: `localStorage` API
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## 🚀 Getting Started
+
+1.  **Clone the repository**:
+    ```bash
+    git clone https://github.com/yourusername/dora-pocket.git
+    cd dora-pocket
+    ```
+
+2.  **Install dependencies**:
+    ```bash
+    npm install
+    # or
+    yarn install
+    ```
+
+3.  **Run the development server**:
+    ```bash
+    npm run dev
+    ```
+
+4.  **Open the app**:
+    Visit [http://localhost:3000](http://localhost:3000) to see the magic!
+
+## 📱 Mobile Optimized
+Dora-Pocket is fully optimized for mobile devices, ensuring you can access your gadgets on the go.
+
+## 🎨 Design System
+The project follows a "Premium Anime" aesthetic:
+- **Colors**: Dora Blue (`#0096D7`), Bell Gold (`#FFD700`), Dora Red (`#E02A27`).
+- **Effects**: Glassmorphism (blur), Neumorphism (soft shadows), and Floating 3D elements.
+- **Fonts**: `Outfit` (sans-serif) for a modern, clean look.
+
+---
+
+*Inspired by Fujiko F. Fujio's Doraemon.*

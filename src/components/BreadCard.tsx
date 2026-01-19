@@ -39,7 +39,7 @@ export function BreadCard({ bread, onEat }: BreadCardProps) {
                             <p className="font-bold text-gray-700 text-lg leading-tight">{bread.question}</p>
                         </div>
                     </div>
-                    <p className="absolute bottom-2 text-xs text-gray-400 font-medium">Click to flip</p>
+                    <p className="absolute bottom-2 text-xs text-gray-500/80 font-bold tracking-wide">Click to flip ↻</p>
                 </div>
 
                 {/* Back (Answer) */}
