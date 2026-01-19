@@ -3,7 +3,7 @@
 import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
 import Image from "next/image";
-import { Map, Brain, Clock, CheckSquare, Sparkles, X, Cookie } from "lucide-react";
+import { Map, Brain, Clock, CheckSquare, Sparkles, X, Cookie, Fan, Zap } from "lucide-react";
 import confetti from "canvas-confetti";
 
 interface MenuOverlayProps {
@@ -19,7 +19,19 @@ export function MenuOverlay({ isOpen, onClose }: MenuOverlayProps) {
         { name: "Sewashi Tasks", icon: CheckSquare, path: "/tasks", color: "#4CAF50" },
         { name: "Wishlist", icon: Sparkles, path: "/wishlist", color: "#9C27B0" },
         { name: "Dorayaki", icon: Cookie, path: "ACTION_DORAYAKI", color: "#FFD700" },
+        { name: "Take-Copter", icon: Fan, path: "ACTION_COPTER", color: "#FF9800" },
+        { name: "Small Light", icon: Zap, path: "ACTION_LIGHT", color: "#00BCD4" },
     ];
+
+    const handleAction = (path: string) => {
+        // specific logic or just generic fun
+        if (path === 'ACTION_DORAYAKI') {
+            handleDorayakiClick();
+        } else {
+            // Generic confetti for others for now
+            handleDorayakiClick();
+        }
+    };
 
     const handleDorayakiClick = () => {
         const duration = 3000;
@@ -100,7 +112,7 @@ export function MenuOverlay({ isOpen, onClose }: MenuOverlayProps) {
                             {gadgets.map((gadget, i) => {
                                 const isAction = gadget.path.startsWith("ACTION");
                                 const ItemWrapper = isAction ? 'button' : Link;
-                                const itemProps = isAction ? { onClick: handleDorayakiClick } : { href: gadget.path, onClick: onClose };
+                                const itemProps = isAction ? { onClick: () => handleAction(gadget.path) } : { href: gadget.path, onClick: onClose };
 
                                 return (
                                     // @ts-ignore
@@ -128,18 +140,7 @@ export function MenuOverlay({ isOpen, onClose }: MenuOverlayProps) {
                                     </ItemWrapper>
                                 );
                             })}
-                            {/* Coming Soon Card */}
-                            <motion.div
-                                initial={{ scale: 0, y: 50 }}
-                                animate={{ scale: 1, y: 0 }}
-                                transition={{ delay: 1.1, type: "spring" }}
-                                className="col-span-2 md:col-span-3 flex flex-col items-center opacity-70 py-4"
-                            >
-                                <div className="w-24 h-24 md:w-32 md:h-32 bg-white/40 backdrop-blur-sm rounded-[2rem] border-2 border-dashed border-gray-300 flex items-center justify-center">
-                                    <span className="text-4xl">➕</span>
-                                </div>
-                                <span className="mt-4 font-bold text-gray-500 text-sm">More Soon...</span>
-                            </motion.div>
+
                         </div>
                     </div>
                 </motion.div>
