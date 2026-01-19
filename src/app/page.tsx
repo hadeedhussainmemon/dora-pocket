@@ -4,7 +4,7 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 import Image from "next/image";
 import { MenuOverlay } from "@/components/MenuOverlay";
-import { Map, Brain, Clock, CheckSquare, Sparkles } from "lucide-react";
+import { Map, Brain, Clock, CheckSquare, Sparkles, Bell, Fan, Cookie } from "lucide-react";
 
 export default function Home() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -14,16 +14,21 @@ export default function Home() {
 
   return (
     <main className="min-h-screen relative overflow-hidden bg-[var(--background)] flex flex-col items-center justify-end pb-0 font-sans selection:bg-[var(--dora-blue)] selection:text-white">
-      
+
       {/* Background Gradient Mesh */}
       <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-blue-100/40 via-transparent to-transparent opacity-60 pointer-events-none" />
 
       {/* 1. ROAMING BACKGROUND GADGETS */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
-        {Array.from({ length: 15 }).map((_, i) => {
-          const Icon = floatingIcons[i % floatingIcons.length];
+        {Array.from({ length: 20 }).map((_, i) => {
+          // Expanded icon set with Doraemon elements
+          // Map=Anywhere Door, Brain=Memory Bread, Clock=Time Machine, 
+          // CheckSquare=Tasks, Sparkles=Magic, Bell=Doraemon, Fan=Take-copter, Cookie=Dorayaki
+          const icons = [Map, Brain, Clock, CheckSquare, Sparkles, Bell, Fan, Cookie];
+          const Icon = icons[i % icons.length];
           const size = Math.random() * 30 + 20;
           const duration = Math.random() * 20 + 15;
+          const delay = Math.random() * 5;
 
           return (
             <motion.div
@@ -34,14 +39,23 @@ export default function Home() {
                 x: [Math.random() * 100 + "vw", Math.random() * 100 + "vw"],
                 y: [Math.random() * 100 + "vh", Math.random() * 100 + "vh"],
                 rotate: [0, 180],
-                opacity: [0, 0.3, 0]
+                opacity: [0, 0.4, 0]
               }}
-              transition={{ duration: duration, repeat: Infinity, ease: "linear" }}
+              transition={{ duration: duration, repeat: Infinity, ease: "linear", delay: delay }}
             >
               <Icon size={size} />
             </motion.div>
           );
         })}
+
+        {/* Flying Take-copter Animation */}
+        <motion.div
+          className="absolute top-[20%] -left-20 text-[var(--dora-bell)] opacity-80"
+          animate={{ x: ["-10vw", "110vw"], y: [0, -50, 0] }}
+          transition={{ duration: 15, repeat: Infinity, ease: "linear", repeatDelay: 10 }}
+        >
+          <Fan size={48} className="animate-spin" />
+        </motion.div>
       </div>
 
       {/* 2. MAIN TEAM ASSEMBLY */}
@@ -59,7 +73,7 @@ export default function Home() {
             <h1 className="text-5xl md:text-7xl font-black text-transparent bg-clip-text bg-[image:var(--dora-gradient-text)] tracking-tighter drop-shadow-sm pb-2">
               Dora-Pocket
             </h1>
-            <motion.div 
+            <motion.div
               className="absolute -top-6 -right-6 text-[var(--dora-bell)]"
               animate={{ rotate: [0, 15, -15, 0] }}
               transition={{ repeat: Infinity, duration: 4, repeatDelay: 1 }}
@@ -68,7 +82,7 @@ export default function Home() {
             </motion.div>
           </div>
           <p className="text-[var(--foreground)]/80 text-lg md:text-xl font-medium mt-4 max-w-lg mx-auto leading-relaxed">
-            Your personal 4D pocket. <br className="hidden md:block"/> 
+            Your personal 4D pocket. <br className="hidden md:block" />
             <span className="text-[var(--dora-blue)] font-bold">Tap the belly</span> to reveal the magic!
           </p>
         </motion.div>
@@ -100,10 +114,10 @@ export default function Home() {
               >
                 {/* Pulse Ring */}
                 <span className="absolute inset-0 rounded-full border-2 border-white/50 animate-ping opacity-75" />
-                
+
                 {/* Glowing Overlay */}
                 <div className="absolute inset-0 bg-[var(--dora-white)]/20 rounded-full blur-md opacity-0 group-hover:opacity-100 transition-all duration-300 scale-110" />
-                
+
                 {/* Center Badge (Optional - can just be the glow) */}
                 <div className="w-full h-full rounded-full mix-blend-overlay bg-white/10 group-active:scale-95 transition-transform" />
               </button>

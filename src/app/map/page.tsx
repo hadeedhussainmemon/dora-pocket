@@ -64,7 +64,7 @@ export default function MapPage() {
                             initial={{ opacity: 0, y: 50, scale: 0.9 }}
                             animate={{ opacity: 1, y: 0, scale: 1 }}
                             transition={{ delay: 0.5, type: "spring", bounce: 0.4 }}
-                            className="p-10 bg-[var(--glass-surface)] backdrop-blur-xl border border-[var(--glass-border)] rounded-[40px] shadow-[var(--shadow-float)] max-w-lg text-center mx-4 relative overflow-hidden"
+                            className="p-6 md:p-10 bg-[var(--glass-surface)] backdrop-blur-xl border border-[var(--glass-border)] rounded-[40px] shadow-[var(--shadow-float)] max-w-lg text-center mx-4 relative overflow-hidden"
                         >
                             <div className="absolute top-0 left-0 w-full h-2 bg-[image:var(--dora-gradient-primary)]" />
                             <h2 className="text-4xl md:text-5xl font-black text-transparent bg-clip-text bg-[image:var(--dora-gradient-text)] mb-6">{currentLocation.name}</h2>

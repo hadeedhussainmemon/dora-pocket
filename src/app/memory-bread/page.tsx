@@ -68,7 +68,7 @@ export default function MemoryBreadPage() {
                 {/* Toaster / Input Section */}
                 <section className="max-w-xl mx-auto mb-16 bg-[var(--glass-surface)] backdrop-blur-xl border border-[var(--glass-border)] p-8 rounded-[32px] shadow-[var(--shadow-float)]">
                     <form onSubmit={handleAdd} className="flex flex-col gap-4">
-                        <div className="grid grid-cols-2 gap-4">
+                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                             <input
                                 value={newQ}
                                 onChange={e => setNewQ(e.target.value)}

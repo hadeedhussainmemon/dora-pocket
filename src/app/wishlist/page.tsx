@@ -55,6 +55,10 @@ export default function WishlistPage() {
         setProblem("");
     };
 
+    const handleDelete = (id: string) => {
+        setWishes(wishes.filter(w => w.id !== id));
+    };
+
     if (!isLoaded) return null;
 
     return (
@@ -112,7 +116,7 @@ export default function WishlistPage() {
                     <section className="lg:col-span-2">
                         <div className="columns-1 md:columns-2 gap-4 space-y-4">
                             {wishes.map((wish, i) => (
-                                <WishCard key={wish.id} wish={wish} index={i} />
+                                <WishCard key={wish.id} wish={wish} index={i} onDelete={handleDelete} />
                             ))}
                         </div>
                     </section>

@@ -20,6 +20,7 @@ export const metadata: Metadata = {
     title: "Dora-Pocket",
     description: "Your personal 4D pocket.",
     type: "website",
+    images: ["/opengraph-image.png"],
   }
 };
 
@@ -32,7 +33,6 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
-        <link rel="icon" href="/logo.png" />
       </head>
       <body
         className={`${outfit.variable} antialiased min-h-screen pb-24`}

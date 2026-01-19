@@ -81,7 +81,7 @@ export default function TimeMachinePage() {
                         </div>
 
                         <div
-                            className="relative w-96 h-96 cursor-pointer group"
+                            className="relative w-72 h-72 md:w-96 md:h-96 cursor-pointer group"
                             onClick={() => setScene("warp")}
                         >
                             {/* Drawer Body */}

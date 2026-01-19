@@ -60,7 +60,7 @@ export function MenuOverlay({ isOpen, onClose }: MenuOverlayProps) {
                             Choose a Gadget
                         </motion.h2>
 
-                        <div className="grid grid-cols-2 md:grid-cols-3 gap-8 md:gap-12 max-w-4xl">
+                        <div className="grid grid-cols-2 md:grid-cols-3 gap-4 md:gap-12 max-w-4xl w-full px-4">
                             {gadgets.map((gadget, i) => (
                                 <Link key={gadget.name} href={gadget.path} onClick={onClose}>
                                     <motion.div
