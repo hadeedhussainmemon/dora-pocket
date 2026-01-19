@@ -13,7 +13,7 @@ export default function Home() {
   const floatingIcons = [Map, Brain, Clock, CheckSquare, Sparkles];
 
   return (
-    <main className="min-h-screen relative overflow-hidden bg-[var(--background)] flex flex-col items-center justify-end pb-0 font-sans selection:bg-[var(--dora-blue)] selection:text-white">
+    <main className="h-screen relative overflow-hidden bg-[var(--background)] flex flex-col items-center justify-end pb-0 font-sans selection:bg-[var(--dora-blue)] selection:text-white">
 
       <motion.div
         animate={{
@@ -22,7 +22,7 @@ export default function Home() {
           borderRadius: isMenuOpen ? "2rem" : "0"
         }}
         transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-        className="w-full h-full min-h-screen flex flex-col items-center justify-end relative bg-[var(--background)] origin-bottom overflow-hidden shadow-2xl"
+        className="w-full h-full flex flex-col items-center justify-end relative bg-[var(--background)] origin-bottom overflow-hidden shadow-2xl"
       >
         {/* Background Gradient Mesh */}
         <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-blue-100/10 via-transparent to-transparent opacity-60 pointer-events-none" />
@@ -96,7 +96,7 @@ export default function Home() {
           </motion.div>
 
           {/* Character Group Image */}
-          <div className="relative w-full aspect-[4/3] max-h-[60vh] md:max-h-[70vh]">
+          <div className="relative w-full flex-1 max-h-[65vh] md:max-h-[75vh] min-h-0 aspect-[4/3] flex items-end justify-center">
             <motion.div
               initial={{ y: 100, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
